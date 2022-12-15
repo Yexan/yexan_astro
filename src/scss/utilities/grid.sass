@@ -1,0 +1,92 @@
+/**
+/* You can see the article here : 
+/* https://dev.to/codyhouse/flash-grid-learn-css-grid-by-building-a-grid-system-2c4f
+/* 
+/* First part is utility classes BUT
+/* Whenever possible USE THE MIXINS (defined bellow) OVER UTILITY CLASSES 🙏
+/****************************************************************************/
+
+// ⚡️ Flash Grid
+$grid-columns: 12 !default
+
+.grid,
+.grid-auto-cols
+  display: grid
+  grid-gap: var(--grid-gap, 0)
+
+.grid
+  --grid-cols: #{$grid-columns}
+  grid-template-columns: repeat(var(--grid-cols), 1fr)
+
+  > *
+    grid-column-end: span var(--grid-cols)
+
+
+.grid-auto-cols
+  // cols = same size
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr))
+
+
+@for $i from 1 through $grid-columns
+  .col-#{$i}
+    grid-column-end: span #{$i}
+
+  .col-start-#{$i}
+    grid-column-start: #{$i}
+
+  .col-end-#{$i+1}
+    grid-column-end: #{$i+1}
+
+
+.col-start
+  grid-column-start: 1
+
+.col-end
+  grid-column-end: -1
+
+
+/**
+/* Create mixins from the grid utility classes
+/* Prefer using mixins over utility classes
+/*******************************************/
+
+=grid($cols: 12, $gap: 0)
+  display: grid
+  grid-gap: var(--grid-gap, #{$gap})
+  --grid-cols: #{$cols}
+  grid-template-columns: repeat(var(--grid-cols), 1fr)
+
+  > *
+    grid-column-end: span var(--grid-cols)
+
+
+=grid-auto($gap: 0, $min-col-width: 0)
+  display: grid
+  grid-gap: var(--grid-gap, #{$gap})
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min-width, #{$min-col-width}), 1fr))
+
+
+=grid-fixed($gap: 0, $grid-size: 1fr)
+  display: grid
+  grid-gap: var(--grid-gap, #{$gap})
+  grid-template-columns: #{$grid-size}
+
+
+
+=grid-col($size: 1)
+  grid-column-end: span #{$size}
+
+=grid-col-start($size: 1)
+  grid-column-start: #{$size}
+
+=grid-col-end($size: -1)
+  grid-column-end: #{$size}
+
+=grid-row($size: 1)
+  grid-row-end: span #{$size}
+
+=grid-row-start($size: 1)
+  grid-row-start: #{$size}
+
+=grid-row-end($size: -1)
+  grid-row-end: #{$size}

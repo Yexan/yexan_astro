@@ -1,6 +1,9 @@
 ---
+import '../scss/soft-reset.sass'
+import '../scss/component/page-frame.sass'
+
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,28 +11,26 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content={Astro.generator} />
+    <meta name="Keywords" content="developer, frontend, front-end, javascript, JS, typescript, Angular, CSS3, responsive, animations, fullstack, PHP, HTML5, RWD">
+    <meta name="Copyright" content="Adrien Martinet 2022">
+    <meta name="Author" content="Adrien Martinet">
+    <meta name="Identifier-Url" content="http://adrienmartinet.com">
+    <title>Adrien Martinet • {title}</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/ico144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/ico114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/ico72.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/ico57.png">
+    <link rel="shortcut icon" href="ico/ico32.png">
+    <meta name="theme-color" content="#663d75" />
+  </head>
+  <body role="document">
+    <main class="page-frame">
+      <slot />
+    </main>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

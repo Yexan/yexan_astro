@@ -1,19 +1,15 @@
 ---
-import '../scss/pages/home.sass'
+import '../scss/pages/404.sass'
 
 import Layout from '../layouts/Layout.astro'
 
 import Network from '../components/Network.astro'
 import { networks } from '../api/networks'
 
-import Job from '../components/Job.astro'
-import { jobs } from '../api/jobs'
-
 import ContactPanel from '../components/ContactPanel.astro'
-
 ---
 
-<Layout title="Frontend Developer">
+<Layout title="Woopsies">
   <header class="home--header">
     <div class="home--header--infos">
       <h1 class="home--header--name">
@@ -28,14 +24,13 @@ import ContactPanel from '../components/ContactPanel.astro'
   </header>
 
   <section class="home--past-work">
-    <div class="home--past-work--wrapper">
-      <h2 class="home--past-work--title">Past work</h2>
-      <div class="jobs">
-        {jobs.map((job) => <Job job={job}></Job>)}
-      </div>
-    </div>
+    <div class="home--past-work--wrapper fourOfour-wrapper">
+			<h2 class="home--past-work--title">404</h2>
+			<p>
+				Wrong page uh ?!
+			</p>
+		</div>
   </section>
 
   <ContactPanel></ContactPanel>
-    
 </Layout>

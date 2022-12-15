@@ -1,0 +1,20 @@
+---
+import '../scss/component/network.sass'
+
+import type { NetworkType } from '../api/networks';
+
+export interface Props {
+	network: NetworkType;
+}
+
+const { networkName, networkImage, networkLink, nickname } = Astro.props.network;
+const imageUrl = 'images/network/' + networkImage;
+---
+
+<a href={networkLink} class="home--header--network" target="_blank">
+  <div class="home--header--network--infos">
+    {networkName}
+    <span>{nickname}</span>
+  </div>
+  <img class="home--header--network--image" src={imageUrl} alt={networkName}>
+</a>

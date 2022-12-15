@@ -1,0 +1,22 @@
+---
+import '../scss/component/job.sass'
+
+import type { JobType } from '../api/jobs';
+
+export interface Props {
+	job: JobType;
+}
+
+const { company, date, imageName, websiteUrl } = Astro.props.job;
+const imageUrl = 'images/jobs/' + imageName;
+---
+
+<a class="job" href={websiteUrl} target="_blank">
+  <div class="job--image--wrapper">
+    <img class="job--image" src={imageUrl} alt={company}>
+  </div>
+  <div class="job--infos">
+    <div class="job--title">{company}</div>
+    <div class="job--date">{date}</div>
+  </div>
+</a>
