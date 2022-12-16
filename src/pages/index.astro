@@ -10,6 +10,9 @@ import Job from '../components/Job.astro'
 import { jobs } from '../api/jobs'
 
 import ContactPanel from '../components/ContactPanel.astro'
+import ArticleLink from '../components/ArticleLink.astro'
+
+const allPosts = await Astro.glob('../pages/posts/*.mdx');
 
 ---
 
@@ -27,8 +30,15 @@ import ContactPanel from '../components/ContactPanel.astro'
     <div class="home--header--image"></div>
   </header>
 
-  <section class="home--past-work">
-    <div class="home--past-work--wrapper">
+  <section class="home--content">
+    <div class="home--articles">
+      <h2 class="home--articles--title">Last articles</h2>
+      <ul class="home--articles--list">
+        {allPosts.map((post) => <ArticleLink post={post}></ArticleLink>)}
+      </ul>
+    </div>
+
+    <div class="home--past-work">
       <h2 class="home--past-work--title">Past work</h2>
       <div class="jobs">
         {jobs.map((job) => <Job job={job}></Job>)}

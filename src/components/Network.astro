@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const { networkName, networkImage, networkLink, nickname } = Astro.props.network;
-const imageUrl = 'images/network/' + networkImage;
+const imageUrl = '/images/network/' + networkImage;
 ---
 
 <a href={networkLink} class="home--header--network" target="_blank">

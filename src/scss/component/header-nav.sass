@@ -1,0 +1,45 @@
+@import ../utilities/mixins
+
+.header--nav
+  +flex-row-left
+  +w-h(calc(100% + 6vw), auto)
+  margin-left: -3vw
+  padding: 15px
+  background-color: #444
+
+.header--nav--title
+  position: relative
+  margin: 0 30px 0 0
+  +font-size(18)
+  color: #ddd
+
+  &:after
+    +pseudo
+    +top-right(0, - 15px)
+    +w-h(1px, 100%)
+    background-color: currentColor
+
+.header--nav--main
+  margin: 0
+  padding: 0
+  list-style: none
+
+  a
+    +color-and-hover(#ddd, #fff)
+    +font-size(16, 600)
+
+.header--nav--networks
+  +flex-row-center
+  align-self: flex-end
+  list-style: none
+  margin: 0 0 0 auto
+  padding: 0
+
+.header--nav--network
+  +flex-column-center
+  +w-h(30px)
+  margin: 0 5px
+
+  img
+    width:100%
+    height: auto

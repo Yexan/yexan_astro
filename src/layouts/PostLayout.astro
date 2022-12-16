@@ -1,0 +1,28 @@
+---
+import '../scss/layout/post-layout.sass'
+
+import Layout from './Layout.astro'
+
+import ContactPanel from '../components/ContactPanel.astro'
+
+
+import HeaderNav from '../components/HeaderNav.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<Layout title={frontmatter.title}>
+
+  <HeaderNav></HeaderNav>
+  <picture class="article--hero-image">
+    <img src={frontmatter.cover.url} alt="Unsplash image for article hero image">
+  </picture>
+
+  <section class="article">
+    <div class="article--wrapper">
+      <h2 class="article--title">{frontmatter.title}</h2>
+      <slot />
+    </div>
+  </section>
+  <ContactPanel></ContactPanel>
+</Layout>

@@ -1,0 +1,46 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'Japanese Kana table with Quizz'
+pubDate: 2022-12-16
+description: 'I wanted a support to help me learn hiragana and katakana so I created a dynamic one'
+author: 'Adrien Martinet'
+image:
+  url: '/images/posts/japanese-kana-table.png'
+  alt: 'Japanese Kana table with Quizz'
+cover:
+  url: 'https://images.unsplash.com/photo-1501560379-05951a742668?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=500&dpr=1'
+tags: ["css", "typescript", "learning"]
+---
+
+import Codepen from '../../Components/Codepen.astro';
+
+
+I like japanese culture and would love be able to read and speak japanese to enjoy more the culture and be able to travel there and experience the country fully by connecting with people.
+
+I'm still a beginner in that journey and want to learn how to read. In Japan there is 3 main "alphabet" : Hiragana (more round and used to write japanese words), Katakana (more sharp and used to write names and imported words from other languages) and Kanjis (more complex, representing an idea).
+
+I started to learn all hiragana and wanted to challenge myself by reading simple ebooks made for children using <a href="https://tadoku.org/japanese/en/free-books-en/" target="_blank">Tadoku's free books</a>
+
+But sometimes I wasn't sure about some kanas and wanted a way to practice, be able to search for a kana or by a kana if I didn't remember and have a dynamic support that would help me to read correctly.
+
+I've seen some existing kana table but only images so not searchable and as I have no printer and it was a bit hard to do it on paper I decided to grab a new pen on Codepen and start a new POC :D
+
+<Codepen slug="BaxyxaO" title="Japanese Kana table + Quizz" height="800"></Codepen>
+
+
+### Features
++ I've added the possibility to hide and show additionnal kana like b and p as it's the same as h but with " or ° for exemple. It allows to have less informations going on on the screen
++ Toggle Serif. Depending on the source you'll read it could be written with Serif and it can change quite a lot. I found it handy to be able to swith from one another :)
++ Hiragana / Katakana toggle. Swith from one to the other to have the equivalent
++ Search inputs. At the bottom you have search inputs with event on input to display a quick result next to the input
++ Quizz. At the end I've quickly added a small quizz to be able to chose between Hiragana, Katakana or by name and a button to display the answer
+
+
+
+### Interesting points I've practiced on this POC :
+  + As usual SASS syntax as it's really clean and concise
+  + Grid templates. I've decided to use grid-template area to easily switch from a table with or without additional kanas. Note: in SASS you can't display grid-template-areas on multiline as the parser won't like it. You have to put your areas on the same line separated by spaces 
+  + Column and row headings are simply displayed with a `before` pseudo element using the `content: attr(data-col)` and `content: attr(data-row)` and the `data-col` attribute set on each letter :)
+  + It was pleasful to use typescript, I made a Letter Interface and a createLetter function. I was then able to create my list of every letters. (Yes, it was a bit slow but pretty fun)
+  + I used templating in TS, could have done that in HMTL directly but as I created my letters in TS it was more clean and flexible to do so
+  + I think discovered for the first time the event `input` and didn't used a keyup or keydown event :)

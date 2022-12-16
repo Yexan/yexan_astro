@@ -1,0 +1,23 @@
+---
+const { slug, title } = Astro.props;
+const render = Astro.props.render || 'result'
+const height = Astro.props.height || '600'
+---
+
+<div class="codepen--wrapper">
+  <p
+    class="codepen"
+    data-height={height}
+    data-default-tab={render}
+    data-slug-hash={slug}
+    data-user="Yexan"
+    style={`height: ${height}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`}>
+    <span>See the Pen <a href={`https://codepen.io/Yexan/pen/${slug}`}>{title}</a> by Adrien Martinet (<a href="https://codepen.io/Yexan">@Yexan</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+  </p>
+</div>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<style>
+  .codepen--wrapper { padding: 30px 0; }
+</style>

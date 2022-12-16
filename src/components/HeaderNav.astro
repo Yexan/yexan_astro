@@ -1,0 +1,24 @@
+---
+import '../scss/component/header-nav.sass'
+
+import { networks, NetworkType } from '../api/networks'
+
+---
+
+<nav class="header--nav" role="navigation">
+  <h1 class="header--nav--title">Adrien Martinet</h1>
+
+  <ul class="header--nav--main">
+    <li><a href="/">Home</a></li>
+  </ul>
+
+  <ul class="header--nav--networks">
+    {networks.map((network: NetworkType) => (
+      <li>
+        <a href={network.networkLink} class="header--nav--network" target="_blank">
+          <img class="home--header--network--image" src={`/images/network/${network.networkImage}`} alt={network.networkName}>
+        </a>      
+      </li>
+    ))}
+  </ul>
+</nav>

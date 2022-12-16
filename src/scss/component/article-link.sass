@@ -1,0 +1,41 @@
+@import ../utilities/mixins
+
+.article--link--wrapper
+  padding: 15px
+
+  &:nth-child(2n)
+    .article--link
+      +flex-row-right
+    
+    .article--link--image
+      order: 2
+    
+    .article--link--infos
+      +flex-column-right
+      margin-left: 0
+      margin-right: 15px
+
+
+.article--link
+  +flex-row-left
+  +color-and-hover(#444, #000)
+
+  &:hover,
+  &:focus
+    .article--link--image
+      filter: saturate(1.5)
+
+.article--link--image
+  +w-h(150px)
+  aspect-ratio: 1
+
+.article--link--infos
+  +flex-column-left
+  margin-left: 15px
+
+.article--link--title
+  +font-size(16, 600)
+
+.article--link--description
+  +font-size(14, 300)
+

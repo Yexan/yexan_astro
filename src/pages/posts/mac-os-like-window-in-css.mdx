@@ -1,0 +1,30 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'Mac OS like window in CSS with backdrop filter'
+pubDate: 2022-12-16
+description: 'I discovered backdrop filter property and made me think at a Mac OS finder window'
+author: 'Adrien Martinet'
+image:
+  url: '/images/posts/mac-os-like-window.png'
+  alt: 'Mac OS like window in CSS with backdrop filter'
+cover:
+  url: 'https://images.unsplash.com/photo-1654616605705-2ef59f08ae66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=500&dpr=1'
+tags: ["css", "typescript", "learning"]
+---
+
+import Codepen from '../../Components/Codepen.astro';
+
+
+When I discovered the CSS property backdrop filter it made me think at Finder, the Mac OS file explorer.
+
+Say no more, I opened a new pen and challenged myself with a quick POC :D 
+
+The idea was to keep the HTML as small as possible and make most of the job in CSS. I've used a bit of typescript in the end to be able to move the window but even the file navigation is foldable without javascript :)
+
+<Codepen slug="gOzYZJp" title="Mac OS - like window"></Codepen>
+
+
+### Interesting points I've practiced on this POC :
+  + `backdrop-filter: blur()` is really easy to use and can be visually interesting
+  + `details` and `summary` tags are pretty handy and accessible by default using keyboard events. We can be default use the `open` property on it to open the details
+  + I've once more used svg in background cast as data:image for the folder icons

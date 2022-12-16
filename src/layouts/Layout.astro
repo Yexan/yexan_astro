@@ -1,6 +1,5 @@
 ---
-import '../scss/soft-reset.sass'
-import '../scss/component/page-frame.sass'
+import '../scss/layout/base-layout.sass'
 
 export interface Props {
   title: string;
@@ -21,11 +20,11 @@ const { title } = Astro.props;
     <meta name="Identifier-Url" content="http://adrienmartinet.com">
     <title>Adrien Martinet • {title}</title>
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/ico144.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/ico114.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/ico72.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/ico57.png">
-    <link rel="shortcut icon" href="ico/ico32.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/ico144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/ico114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/ico72.png">
+    <link rel="apple-touch-icon-precomposed" href="/ico/ico57.png">
+    <link rel="shortcut icon" href="/ico/ico32.png">
     <meta name="theme-color" content="#663d75" />
   </head>
   <body role="document">
