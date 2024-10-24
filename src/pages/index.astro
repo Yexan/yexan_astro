@@ -13,6 +13,7 @@ import ContactPanel from '../components/ContactPanel.astro'
 import ArticleLink from '../components/ArticleLink.astro'
 
 const allPosts = await Astro.glob('../pages/posts/*.mdx');
+allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
 
 ---
 
@@ -47,5 +48,5 @@ const allPosts = await Astro.glob('../pages/posts/*.mdx');
   </section>
 
   <ContactPanel></ContactPanel>
-    
+
 </Layout>

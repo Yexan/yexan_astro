@@ -1,9 +1,9 @@
-@import ../utilities/mixins
+@use '../utilities/mixins' as m
 
 .home--header--network
-  +flex-row-center
+  +m.flex-row-center
   margin: 10px 0
-  +color-and-hover(#2b2b2b)
+  +m.color-and-hover(#2b2b2b)
   transition: opacity .3s ease-in-out
 
 

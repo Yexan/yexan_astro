@@ -1,9 +1,9 @@
-@import ../utilities/mixins
+@use '../utilities/mixins' as m
 
 .home--header
   position: relative
-  +flex-column-center
-  +w-h(calc(100% + 6vw), 400px)
+  +m.flex-column-center
+  +m.w-h(calc(100% + 6vw), 400px)
   margin-left: -3vw
   padding: 20px
   background-color: #ddd7f5
@@ -14,8 +14,8 @@
 
 
 .home--header--infos
-  +flex-row-between
-  +wrapper
+  +m.flex-row-between
+  +m.wrapper
   padding: 25px 60px
 
   @media (max-width: 950px)
@@ -52,7 +52,7 @@
 
 .home--header--networks
   position: relative
-  +flex-column-right
+  +m.flex-column-right
   z-index: 4
   visibility: hidden
 
@@ -68,12 +68,18 @@
 
 .home--header--image
   position: absolute
-  +positions
+  +m.positions
   background-image: url('/images/adrien.jpg')
+  background-image: image-set(url("/images/adrien.jpg") 1x, url("/images/adrien@2x.jpg") 2x)
   background-position: center
   background-size: auto 100%
   background-repeat: no-repeat
+  mix-blend-mode: darken
   z-index: 1
+
+  @media (max-width: 680px)
+    background-image: url('/images/adrien_small.jpg')
+    background-image: image-set(url("/images/adrien_small.jpg") 1x, url("/images/adrien_small@2x.jpg") 2x)
 
 
 .home--content
@@ -88,7 +94,7 @@
 
 .home--articles,
 .home--past-work
-  +wrapper(890px)
+  +m.wrapper(890px)
   background-color: #fff
   transform: translateY(-35px)
 
@@ -115,8 +121,8 @@
   &:after
     position: absolute
     content: ''
-    +bottom-left(0, "calc(50% - 60px)")
-    +w-h(120px, 4px)
+    +m.bottom-left(0, "calc(50% - 60px)")
+    +m.w-h(120px, 4px)
     background: #663d75
     background: linear-gradient(168deg, #663d75 40%, #663d5e)
 
@@ -130,13 +136,13 @@
   list-style-type: none
 
 .jobs
-  +flex-row-left-stretch
+  +m.flex-row-left-stretch
   flex-wrap: wrap
   padding: 10px 0 0
   visibility: hidden
 
   @media (max-width: 800px)
-    +flex-row-stretch
+    +m.flex-row-stretch
 
   & > *
     visibility: visible
