@@ -19,5 +19,12 @@ const height = Astro.props.height || '600'
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 <style>
-  .codepen--wrapper { padding: 30px 0; }
+  .codepen--wrapper {
+    padding: 30px 0;
+    transition: opacity 1.5s ease;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
 </style>
