@@ -1,0 +1,30 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'Chess board generator'
+pubDate: 2025-01-28
+description: 'Native JS with CSS variables chess board generator'
+author: 'Adrien Martinet'
+image:
+  url: '/images/posts/chess-board-generator.png'
+  alt: 'Native JS with CSS variables chess board generator'
+cover:
+  url: 'https://images.unsplash.com/photo-1588412079929-790b9f593d8e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&h=500&dpr=1'
+tags: ['javascript', 'css variables']
+---
+
+import Codepen from '../../components/Codepen.astro';
+
+In january 2025 I was asked for an interview to create a chessboard in a live coding session.
+
+I created a pen and tackled the task without any frontend framework.
+
+We can do this with just vanilla JavaScript, I added some css variables to be able to modify the size of the board and of each cells in an input and update the view.
+
+We just have to change the DOM when we change the grid size, when we change the size of the cells updating the CSS variable will update the view automatically :)
+
+<Codepen slug="WbePvKZ" title="Chess board generator" height="600"></Codepen>
+
+### Interesting points I've practiced on this POC :
+
+- It was fun to create a small project in vanilla JS
+- I didn't often use CSS variable manipulation by a user so it was cool to experiment
