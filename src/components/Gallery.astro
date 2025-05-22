@@ -1,0 +1,63 @@
+---
+import '../scss/component/gallery.sass';
+import { galleryImages } from '../data/gallery-images.ts';
+
+const { folder } = Astro.props;
+const images = galleryImages[folder] ?? [];
+---
+
+<div class="gallery" id="gallery">
+  <div class="gallery--images">
+    {images.map((image, i) => (
+      <img
+        src={image}
+        alt={image.split('/').pop().split('.')[0]}
+        tabindex="0"
+        role="button"
+        aria-label="Open the image in full screen"
+        data-index={i}
+        class="gallery-img"
+      />
+    ))}
+  </div>
+  <div class="gallery-modal-backdrop" id="gallery-modal" style="display:none;">
+    <img class="gallery-modal-img" id="gallery-modal-img" alt="Image in fullscreen" />
+  </div>
+</div>
+
+<script type="module">
+  const gallery = document.getElementById('gallery');
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = document.getElementById('gallery-modal-img');
+  const images = Array.from(gallery.querySelectorAll('.gallery-img'));
+
+  images.forEach(img => {
+    img.addEventListener('click', () => openModal(img.dataset.index));
+    img.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        img.click();
+      }
+    });
+  });
+
+  function openModal(index) {
+    modal.style.display = 'flex';
+    modalImg.src = images[index].src;
+    modalImg.alt = images[index].alt;
+    setTimeout(() => modalImg.focus(), 10);
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    modalImg.src = '';
+  }
+
+  modal.addEventListener('click', closeModal);
+  window.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'none' && e.key === 'Escape') {
+      closeModal();
+    }
+  });
+  modalImg.addEventListener('click', e => e.stopPropagation());
+</script>
+

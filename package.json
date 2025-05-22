@@ -4,11 +4,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "generate:gallery-images": "node generate-gallery-images-list.cjs",
+    "init": "npm run generate:gallery-images",
+    "dev": "npm run init && astro dev",
+    "build": "npm run init && astro build",
+    "start": "npm run init && astro dev",
+    "preview": "npm run init && astro preview",
+    "astro": "npm run init && astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.12.2",

@@ -1,0 +1,52 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'West Coast Swing app - Angular 19'
+pubDate: 2025-05-22
+description: "Web app to gather West Coast Swing moves I've learned in an angular latest version app with Firebase and Vercel"
+author: 'Adrien Martinet'
+image:
+  url: '/images/posts/wcs-app.png'
+  alt: 'West Coast Swing app'
+cover:
+  url: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&h=500&dpr=1'
+tags: ['angular', 'wcs', 'firebase']
+---
+
+import Gallery from '../../components/Gallery.astro';
+
+In september last year I started to learn West Coast Swing, a dance and I really enjoy it!
+
+To help my learning journey and remember what I've learned I created a web app to gather the moves I already know.
+
+### Links
+
+- here is the [Github repo](https://github.com/Yexan/wcs-moves)
+- here is the [project link](https://wcs.adrienmartinet.com/)
+
+### My goal was mainly to
+
+- practice Angular with some of the latest features
+- use Firebase for :
+  - data storage with Cloud Firestore Database
+  - Authentication
+- use Vervel for deployment in continuous integration
+- share the project on github for the angular community
+
+### Some screenshots
+
+This is still a work in progress, the content for example of all the moves is not filled up yet and the project is meant to evolve (with video description of the moves for example and recommanded moves based on the end partner connection relative to the beginning partner connection of a move :))
+
+<Gallery folder="wcs"></Gallery>
+
+To handle the credentials privacy I created a script to create environment files with non versionned dotfiles containing the private informations.
+I've used Vercel to deploy the project so every time I commit a new change everything is automated, a new version is deployed and the website is up to date with no effort.
+
+### Interesting points I've practiced on this project :
+
+- To handle the credentials privacy I created a script to create environment files with non versionned dotfiles containing the private informations.
+- Use Firebase and configure the project
+- Use of RxJs for the search with CombineLatest on different Observables
+- Project architecture by features
+- Good use of Typescript with precise typing and usage of a couple of type generics
+- As usual SASS syntax as it's really clean and concise
+- It's still a work in progress, I'll add more features but the base is pretty nice to work on :)
