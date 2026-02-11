@@ -1,0 +1,36 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'Organic glass-inspired tab navigation'
+pubDate: 2026-02-11
+description: 'UI experimentation inspired by liquid glass interfaces'
+author: 'Adrien Martinet'
+image:
+  url: '/images/posts/organic-glass-inspired-tab-navigation.png'
+  alt: 'Organic glass-inspired tab navigation'
+cover:
+  url: 'https://images.unsplash.com/photo-1732008278594-3f3272927445?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&h=500&dpr=1'
+tags: ['css', 'illustration', 'UI']
+---
+
+import Codepen from '../../components/Codepen.astro';
+
+When apple released their Liquid glass User Interface it inspired me to create a new pen about an organic navigation that changes shape when you click or navigate with it.
+
+It's a POC with accessible aria access for screen readers but also has arrow navigation enabled when you focus a tab button element.
+
+By default the first tab is focused when you arrive on the page to allow to navigate with keybord but you can click elsewhere or click directly on an element to change the displayed tab.
+
+The content is minimalist as it was realized pretty quickly (without AI).
+
+<Codepen
+  slug="YPWdrgB"
+  title="Organic glass-inspired tab navigation"
+  height="980"
+  render="result"
+></Codepen>
+
+### Interesting points I've practiced on this POC :
+
+- I read some documentation about accessibility and WAI-ARIA patterns
+- I initally did a full css approach but you lose the moving part of the indicator if you only use `[aria-selected="true"]` and before or after pseudo elements as they are relative to each buttons
+- it was fun to simulate small changes on the indicator element and play with the focus state
